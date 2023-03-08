@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/xincryptedx/tic-tac-toe/issues"
   },
-  "homepage": "https://github.com/xincryptedx/tic-tac-toe#readme"
+  "homepage": "https://github.com/xincryptedx/tic-tac-toe#readme",
+  "devDependencies": {
+    "eslint": "^8.35.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5"
+  }
 }
