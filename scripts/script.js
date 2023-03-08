@@ -17,3 +17,10 @@
     computerPlayer: module that inherits from player factory with object.create
 
 */
+import EventManager from "./eventManager";
+
+function aFunction() {
+  console.log("A function happened!");
+}
+
+EventManager.on("anEvent", aFunction);
