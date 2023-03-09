@@ -129,6 +129,7 @@ table {
 /*Color Scheme*/
 :root {
   --primary-bg-color: hsl(103, 100%, 82%);
+  --spot-border-color: hsl(0, 0%, 0%);
 }
 
 body {
@@ -164,6 +165,10 @@ body {
   min-width: 80vw;
   aspect-ratio: 1/1;
   background-color: var(--primary-bg-color);
+}
+
+.board .spot {
+  border: 5px solid var(--spot-border-color);
 }
 
 .board .spot1 {
