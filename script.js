@@ -14,16 +14,17 @@
 const gameBoard = (() => {
   const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
+  const render = () => {};
+
   const makeMark = (marker, position) => {
     if (board[position] === 0) {
       board[position] = marker;
     } else {
-      console.log("BUG");
+      /* Space Taken */
     }
   };
 
   return {
     makeMark,
-    board,
   };
 })();
