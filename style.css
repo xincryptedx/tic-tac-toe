@@ -177,6 +177,11 @@ body {
   text-justify: center;
 }
 
+.board .mark {
+  max-height: 25vw;
+  aspect-ratio: 1 / 1;
+}
+
 .board .spot1 {
   grid-area: r1c1;
   border-left: var(--spot-border-size) solid var(--spot-border-color-subtle);
