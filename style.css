@@ -137,10 +137,19 @@ body {
     "player-info";
 }
 
+.header {
+}
+
 .game {
 }
 
-.board {
+.game .board {
   background-color: black;
   display: grid;
+}
+
+.log {
+}
+
+.player-info {
 }
