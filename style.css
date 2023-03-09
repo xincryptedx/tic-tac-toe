@@ -172,6 +172,9 @@ body {
 
 .board .spot {
   border: var(--spot-border-size) solid var(--spot-border-color);
+  font-size: 5em;
+  text-align: center;
+  text-justify: center;
 }
 
 .board .spot1 {
