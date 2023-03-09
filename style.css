@@ -157,9 +157,49 @@ body {
 .game .board {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template-areas:
+    "r1c1 r1c2 r1c3"
+    "r2c1 r2c2 r2c3"
+    "r3c1 r3c2 r3c3";
   min-width: 80vw;
   aspect-ratio: 1/1;
   background-color: var(--primary-bg-color);
+}
+
+.board .spot1 {
+  grid-area: r1c1;
+}
+
+.board .spot2 {
+  grid-area: r1c2;
+}
+
+.board .spot3 {
+  grid-area: r1c3;
+}
+
+.board .spot4 {
+  grid-area: r2c1;
+}
+
+.board .spot5 {
+  grid-area: r2c2;
+}
+
+.board .spot6 {
+  grid-area: r2c3;
+}
+
+.board .spot7 {
+  grid-area: r3c1;
+}
+
+.board .spot8 {
+  grid-area: r3c2;
+}
+
+.board .spot9 {
+  grid-area: r3c3;
 }
 
 .log {
