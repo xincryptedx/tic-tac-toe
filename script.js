@@ -1,9 +1,4 @@
-/*  Event manager: handles sub/unsub to events as well as emitting events
-    .on(eventName, handler)
-    .off(eventName)
-    .emit(eventName)
-
-    Events: object that stores event names for the project
+/*
 
     gameboard module: holds and changes game board data
     .makeMark(marker, position): attempts to set given marker at given position
@@ -27,11 +22,27 @@ const EventManager = (() => {
     events[eventName].push(fn);
   };
 
-  /*   const off = function (eventName, fn) {}; */
+  const off = (eventName, fn) => {
+    if (this.events[eventName]) {
+      for (let i = 0; i < this.events[eventName].length; i += 1) {
+        if (this.events[eventName][i] === fn) {
+          this.events[eventName].splice(i, 1);
+          break;
+        }
+      }
+    }
+  };
 
+  const emit = (eventName, data) => {
+    if (this.events[eventName]) {
+      this.events[eventName].forEach((fn) => {
+        fn(data);
+      });
+    }
+  };
   return {
     on,
+    off,
+    emit,
   };
 })();
-
-export default EventManager;
