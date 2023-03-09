@@ -141,6 +141,8 @@ body {
 }
 
 .game {
+  grid-area: game;
+  display: grid;
 }
 
 .game .board {
