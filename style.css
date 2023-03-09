@@ -126,3 +126,21 @@ table {
 body {
   height: 100vh;
 }
+
+.container {
+  display: grid;
+  grid-template: 10vh 60vh 20vh 10vh / 1fr;
+  grid-template-areas:
+    "header"
+    "game"
+    "log"
+    "player-info";
+}
+
+.game {
+}
+
+.board {
+  background-color: black;
+  display: grid;
+}
