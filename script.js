@@ -16,6 +16,15 @@ const gameBoard = (() => {
   const spots = boardDiv.children;
   const marks = boardDiv.querySelectorAll(".mark");
 
+  const markImage = new Image();
+  markImage.src =
+    "https://drive.google.com/uc?id=1tZ9VppmxwWYUEgaqNbY9v-a8tffZmXuJ";
+
+  marks.forEach((img) => {
+    const newImg = img;
+    newImg.src = markImage.src;
+  });
+
   const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
   const render = () => {
