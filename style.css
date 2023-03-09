@@ -1,3 +1,5 @@
+/*CSS Reset*/
+/*#region*/
 html,
 body,
 div,
@@ -122,6 +124,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+/*#endregion*/
 
 body {
   height: 100vh;
