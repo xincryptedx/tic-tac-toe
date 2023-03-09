@@ -149,8 +149,8 @@ body {
 .game .board {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  min-width: 50vw;
-  min-height: 50vh;
+  min-width: 80vw;
+  aspect-ratio: 1/1;
   background-color: black;
 }
 
