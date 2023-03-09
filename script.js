@@ -12,9 +12,17 @@
 
 */
 const gameBoard = (() => {
+  const boardDiv = document.querySelector(".board");
+  const spots = boardDiv.children;
+
   const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  const render = () => {};
+  const render = () => {
+    for (let i = 0; i < board.length; i += 1) {
+      /*       console.log(`Position: ${i} Value: ${board[i]}`); */
+      spots[i].innerHTML = board[i];
+    }
+  };
 
   const makeMark = (marker, position) => {
     if (board[position] === 0) {
@@ -26,5 +34,7 @@ const gameBoard = (() => {
 
   return {
     makeMark,
+    render,
+    board,
   };
 })();
