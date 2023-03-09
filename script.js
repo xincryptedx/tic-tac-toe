@@ -14,6 +14,7 @@
 const gameBoard = (() => {
   const boardDiv = document.querySelector(".board");
   const spots = boardDiv.children;
+  const marks = boardDiv.querySelectorAll(".mark");
 
   const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
