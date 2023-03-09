@@ -30,13 +30,12 @@ const gameBoard = (() => {
       board[position] = marker;
       render();
     } else {
-      alert("Space Already Taken!"); /* Change to visual feedback later */
+      alert("Invalid move!"); /* Change to visual feedback later */
     }
   };
 
   return {
     makeMark,
     render,
-    board,
   };
 })();
