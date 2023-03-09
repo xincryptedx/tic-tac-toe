@@ -1,5 +1,4 @@
 /*
-
     gameboard module: holds and changes game board data
     .makeMark(marker, position): attempts to set given marker at given position
                     
@@ -12,3 +11,19 @@
     computerPlayer: module that inherits from player factory with object.create
 
 */
+const gameBoard = (() => {
+  const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+  const makeMark = (marker, position) => {
+    if (board[position] === 0) {
+      board[position] = marker;
+    } else {
+      console.log("BUG");
+    }
+  };
+
+  return {
+    makeMark,
+    board,
+  };
+})();
