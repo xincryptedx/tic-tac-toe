@@ -126,6 +126,11 @@ table {
 }
 /*#endregion*/
 
+/*Color Scheme*/
+:root {
+  --primary-bg-color: hsl(69, 75%, 40%);
+}
+
 body {
   height: 100vh;
 }
@@ -154,7 +159,7 @@ body {
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   min-width: 80vw;
   aspect-ratio: 1/1;
-  background-color: black;
+  background-color: var(--primary-bg-color);
 }
 
 .log {
