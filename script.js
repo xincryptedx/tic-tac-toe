@@ -53,7 +53,9 @@ const gameBoard = (() => {
   };
 
   spots.forEach((spot) => {
-    spot.addEventListener("click", () => tryMark(1));
+    spot.addEventListener("click", () =>
+      tryMark(spot.getAttribute("data-pos"))
+    );
   });
 
   return {
