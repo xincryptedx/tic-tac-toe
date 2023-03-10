@@ -10,6 +10,7 @@
 
 */
 const gameBoard = (() => {
+  const spots = document.querySelectorAll(".spot");
   const marks = document.querySelectorAll(".mark");
 
   const oMarker = new Image();
@@ -42,7 +43,7 @@ const gameBoard = (() => {
       makeMark(gameMaster.getActivePlayerMark(), position);
       gameMaster.turnOver();
     } else {
-      alert("Spot taken!"); // Change this later for better feedback?
+      alert("Spot taken!"); // Change this later for better feedback
     }
   };
 
@@ -50,6 +51,10 @@ const gameBoard = (() => {
     board[position] = marker;
     render();
   };
+
+  spots.forEach((spot) => {
+    spot.addEventListener("click", () => tryMark(1));
+  });
 
   return {
     render,
