@@ -118,6 +118,10 @@ const gameBoard = (() => {
     checkWin();
   };
 
+  const clearBoard = () => {
+    board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+  };
+
   spots.forEach((spot) => {
     spot.addEventListener("click", () =>
       tryMark(spot.getAttribute("data-pos"))
@@ -127,6 +131,7 @@ const gameBoard = (() => {
   return {
     render,
     tryMark,
+    clearBoard,
   };
 })();
 
@@ -165,7 +170,10 @@ const gameMaster = (() => {
 
   const turnOver = () => {
     // Check for gameOver conditions
-    if (gameState.activePlayer === gameState.players[0]) {
+    if (
+      gameState.activePlayer === gameState.players[0] &&
+      gameState.gameStarted
+    ) {
       setActivePlayer(1);
       gameLog.showMessage("p2Turn");
     } else {
@@ -185,6 +193,11 @@ const gameMaster = (() => {
       gameLog.showMessage("tie");
     }
     // Reset game
+  };
+
+  const resetGame = () => {
+    gameState.gameStarted = false;
+    gameBoard.clearBoard();
   };
 
   // Create Players
