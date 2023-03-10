@@ -9,6 +9,26 @@
     computerPlayer: module that inherits from player factory with object.create
 
 */
+const gameLog = (() => {
+  const logText = document.querySelector(".log .text-area p");
+
+  const messages = {
+    p1Turn: "Player One's Turn!",
+    p2Turn: "Player Two's Turn!",
+    p1Win: "Player One Wins!",
+    p2Win: "Player Two Wins!",
+    tie: "It's a tie game.",
+  };
+
+  const showMessage = (message) => {
+    logText.innerHTML = messages[message];
+  };
+
+  return {
+    showMessage,
+  };
+})();
+
 const gameBoard = (() => {
   const spots = document.querySelectorAll(".spot");
   const marks = document.querySelectorAll(".mark");
