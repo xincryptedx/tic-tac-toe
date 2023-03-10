@@ -87,14 +87,11 @@ const gameBoard = (() => {
     }
   };
 
-  const makeMark = (marker, position) => {
-    board[position] = marker;
-    render();
-  };
-
   const checkWin = () => {
-    const player1 = gameMaster.getPlayer[0];
-    const player2 = gameMaster.getPlayer[1];
+    const player1 = gameMaster.getPlayer(0);
+    const player2 = gameMaster.getPlayer(1);
+
+    console.log(player1);
 
     // If the spots in any winning combination are all the same and not -1 then win
     WINNING_COMBINATIONS.forEach((combination) => {
@@ -102,10 +99,10 @@ const gameBoard = (() => {
         board[combination[0]] === board[combination[1]] &&
         board[combination[0]] === board[combination[2]]
       ) {
-        if (board[combination[0]] === player1.marker) {
+        if (board[combination[0]] === player1.attr.marker) {
           gameMaster.gameOver(player1);
         }
-        if (board[combination[0]] === player2.marker) {
+        if (board[combination[0]] === player2.attr.marker) {
           gameMaster.gameOver(player2);
         }
       }
@@ -114,6 +111,12 @@ const gameBoard = (() => {
     if (board.every((spot) => spot !== -1)) {
       gameMaster.gameOver();
     }
+  };
+
+  const makeMark = (marker, position) => {
+    board[position] = marker;
+    render();
+    checkWin();
   };
 
   spots.forEach((spot) => {
