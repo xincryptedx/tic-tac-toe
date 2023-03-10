@@ -189,7 +189,7 @@ body {
 
 .board .mark {
   max-height: 80%;
-  max-width: 100%;
+  max-width: 80%;
   box-sizing: border-box;
 }
 
