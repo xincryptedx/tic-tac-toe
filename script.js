@@ -12,9 +12,7 @@
 
 */
 const gameBoard = (() => {
-  const boardDiv = document.querySelector(".board");
-  const spots = boardDiv.children;
-  const marks = boardDiv.querySelectorAll(".mark");
+  const marks = document.querySelectorAll(".mark");
 
   const oMarker = new Image();
   const xMarker = new Image();
