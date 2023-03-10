@@ -74,7 +74,6 @@ const gameBoard = (() => {
     if (loadedImageTotal > 1) {
       imagesLoaded = true;
       gameLog.showMessage("p1Turn");
-      console.log("Loaded!");
     }
   };
 
@@ -82,7 +81,6 @@ const gameBoard = (() => {
     if (oMarker.complete && xMarker.complete) {
       imagesLoaded = true;
       gameLog.showMessage("p1Turn");
-      console.log("Cached!");
     }
   })();
 
@@ -101,7 +99,6 @@ const gameBoard = (() => {
   const tryMark = (position) => {
     if (imagesLoaded) {
       if (gameMaster.isGameOver()) {
-        console.log("game is over resetting with click");
         render();
         gameLog.showMessage("p1Turn");
         gameMaster.startGame();
