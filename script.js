@@ -97,9 +97,11 @@ const gameMaster = (() => {
     }
   };
 
-  // Always need a player 1. Default marker is x(1).
+  // Create Players
   const player1 = Player(1);
   gameState.players.push(player1);
+  const player2 = Player(0);
+  gameState.players.push(player2);
 
   return { isStarted, startGame, getActivePlayerMark, turnOver };
 })();
