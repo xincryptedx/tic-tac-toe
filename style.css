@@ -182,9 +182,6 @@ body {
   justify-items: center;
   align-items: center;
   border: var(--spot-border-size) solid var(--spot-border-color);
-  font-size: 5em;
-  text-align: center;
-  text-justify: center;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
