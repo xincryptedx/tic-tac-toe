@@ -1,7 +1,4 @@
-/*
-    gameboard module: holds and changes game board data
-    .makeMark(marker, position): attempts to set given marker at given position
-                    
+/*                  
     player factory: creates player objects
     props
     .makeMark: 
@@ -47,3 +44,10 @@ const gameBoard = (() => {
     board,
   };
 })();
+
+const Player = (marker = -1) => {
+  const totalWins = 0;
+  const getWins = () => totalWins;
+
+  return { marker, getWins };
+};
