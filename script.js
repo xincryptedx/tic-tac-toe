@@ -34,12 +34,15 @@ const gameBoard = (() => {
   };
 
   const tryMark = (position) => {
-    // Check game state and set if needed
-    if (!gameMaster.isStarted) {
+    if (!gameMaster.isStarted()) {
       gameMaster.startGame();
     }
-    // Is spot taken?
-    // makeMark(position)
+
+    if (!board[position] === -1) {
+      alert("Spot taken!"); // Change this later for better feedback?
+    } else {
+      // makeMark(gameMaster.activePlayer.marker);
+    }
   };
 
   const makeMark = (marker, position) => {
@@ -50,6 +53,7 @@ const gameBoard = (() => {
   return {
     makeMark,
     render,
+    tryMark,
   };
 })();
 
@@ -76,11 +80,17 @@ const gameMaster = (() => {
   const isStarted = () => gameState.gameStarted;
   const startGame = () => {
     gameState.gameStarted = true;
+    setActivePlayer(0);
   };
+
+  const setActivePlayer = (playerIndex) => {
+    gameState.activePlayer = gameState.players[playerIndex];
+  };
+  const getActivePlayerMark = () => gameState.activePlayer.attr.marker;
 
   // Always need a player 1. Default marker is x(1).
   const player1 = Player(1);
   gameState.players.push(player1);
 
-  return { isStarted, startGame };
+  return { isStarted, startGame, getActivePlayerMark, gameState };
 })();
