@@ -92,6 +92,21 @@ const gameBoard = (() => {
     render();
   };
 
+  const checkWin() => {
+    // If the spots in any winning combination are all the same and not -1 then win
+    WINNING_COMBINATIONS.forEach(combination => {
+      if (board[combination[0]] === board[combination[1]] && board[combination[0]] === board[combination[2]]) {
+        if (board[combination[0]] === gameMaster.getPlayer[0].marker) {
+          //Player one Wins
+        }
+        if (board[combination[0]] === gameMaster.getPlayer[1].marker) {
+          //Player two wins
+        }
+      }
+    });
+    // If all spots not -1 but no win then tie game
+  }
+
   spots.forEach((spot) => {
     spot.addEventListener("click", () =>
       tryMark(spot.getAttribute("data-pos"))
@@ -130,6 +145,10 @@ const gameMaster = (() => {
     setActivePlayer(0);
   };
 
+  const getPlayer = (playerIndex) => {
+    return gameState.players[playerIndex];
+  }
+
   const setActivePlayer = (playerIndex) => {
     gameState.activePlayer = gameState.players[playerIndex];
   };
@@ -152,5 +171,5 @@ const gameMaster = (() => {
   const player2 = Player(0);
   gameState.players.push(player2);
 
-  return { isStarted, startGame, getActivePlayerMark, turnOver };
+  return { isStarted, startGame, getActivePlayerMark, getPlayer, turnOver };
 })();
