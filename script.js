@@ -78,7 +78,7 @@ const gameBoard = (() => {
     }
   };
 
-  (() => {
+  window.onload = (() => {
     if (oMarker.complete && xMarker.complete) {
       imagesLoaded = true;
       gameLog.showMessage("p1Turn");
