@@ -257,4 +257,6 @@ body {
 }
 
 .player-info {
+  display: grid;
+  grid-template: 1fr / 1fr 1fr;
 }
