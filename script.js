@@ -119,7 +119,9 @@ const gameBoard = (() => {
   };
 
   const clearBoard = () => {
-    board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
+    for (let i = 0; i < board.length; i += 1) {
+      board[i] = -1;
+    }
   };
 
   spots.forEach((spot) => {
