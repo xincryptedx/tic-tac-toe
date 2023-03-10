@@ -100,6 +100,7 @@ const gameBoard = (() => {
     if (imagesLoaded) {
       if (gameMaster.isGameOver()) {
         render();
+        labelController.setActive(0);
         gameLog.showMessage("p1Turn");
         gameMaster.startGame();
         return;
@@ -210,9 +211,11 @@ const gameMaster = (() => {
     if (gameState.activePlayer === gameState.players[0]) {
       setActivePlayer(1);
       gameLog.showMessage("p2Turn");
+      labelController.setActive(1);
     } else {
       setActivePlayer(0);
       gameLog.showMessage("p1Turn");
+      labelController.setActive(0);
     }
   };
 
@@ -251,4 +254,22 @@ const gameMaster = (() => {
     turnOver,
     gameOver,
   };
+})();
+
+const labelController = (() => {
+  const playerOneLabel = document.querySelector(".player-info .player-one");
+  const playerTwoLabel = document.querySelector(".player-info .player-two");
+
+  const setActive = (playerIndex) => {
+    if (playerIndex === 0) {
+      playerOneLabel.classList.add("is-active");
+      playerTwoLabel.classList.remove("is-active");
+    }
+    if (playerIndex === 1) {
+      playerTwoLabel.classList.add("is-active");
+      playerOneLabel.classList.remove("is-active");
+    }
+  };
+
+  return { setActive };
 })();
