@@ -32,6 +32,12 @@ const gameBoard = (() => {
     }
   };
 
+  const tryMark = (position) => {
+    // Check game state and set if needed
+    // Is spot taken?
+    // makeMark(position)
+  };
+
   const makeMark = (marker, position) => {
     board[position] = marker;
     render();
@@ -63,9 +69,14 @@ const gameMaster = (() => {
     players: [],
   };
 
+  const isStarted = () => gameState.gameStarted;
+  const startGame = () => {
+    gameState.gameStarted = true;
+  };
+
   // Always need a player 1. Default marker is x(1).
   const player1 = Player(1);
   gameState.players.push(player1);
 
-  return { gameState };
+  return { isStarted, startGame };
 })();
