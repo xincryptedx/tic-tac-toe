@@ -19,6 +19,7 @@ const gameLog = (() => {
     p2Win: "Player Two Wins!",
     tie: "It's a tie game.",
     spotTaken: "That spot is taken!",
+    continue: "Tap board to start new game.",
   };
 
   const showMessage = (message) => {
@@ -210,6 +211,7 @@ const gameMaster = (() => {
 
   const resetGame = () => {
     gameBoard.clearBoard();
+    gameLog.appendMessage("continue");
   };
 
   // Create Players
