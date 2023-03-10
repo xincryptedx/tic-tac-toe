@@ -88,6 +88,15 @@ const gameMaster = (() => {
   };
   const getActivePlayerMark = () => gameState.activePlayer.attr.marker;
 
+  const turnOver = () => {
+    // Check for gameOver conditions
+    if (gameState.activePlayer === gameState.players[0]) {
+      setActivePlayer(1);
+    } else {
+      setActivePlayer(0);
+    }
+  };
+
   // Always need a player 1. Default marker is x(1).
   const player1 = Player(1);
   gameState.players.push(player1);
