@@ -120,8 +120,10 @@ const gameMaster = (() => {
     // Check for gameOver conditions
     if (gameState.activePlayer === gameState.players[0]) {
       setActivePlayer(1);
+      gameLog.showMessage("p2Turn");
     } else {
       setActivePlayer(0);
+      gameLog.showMessage("p1Turn");
     }
   };
 
