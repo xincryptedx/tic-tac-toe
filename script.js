@@ -92,20 +92,29 @@ const gameBoard = (() => {
     render();
   };
 
-  const checkWin() => {
+  const checkWin = () => {
+    const player1 = gameMaster.getPlayer[0];
+    const player2 = gameMaster.getPlayer[1];
+
     // If the spots in any winning combination are all the same and not -1 then win
-    WINNING_COMBINATIONS.forEach(combination => {
-      if (board[combination[0]] === board[combination[1]] && board[combination[0]] === board[combination[2]]) {
-        if (board[combination[0]] === gameMaster.getPlayer[0].marker) {
-          //Player one Wins
+    WINNING_COMBINATIONS.forEach((combination) => {
+      if (
+        board[combination[0]] === board[combination[1]] &&
+        board[combination[0]] === board[combination[2]]
+      ) {
+        if (board[combination[0]] === player1.marker) {
+          gameMaster.gameOver(player1);
         }
-        if (board[combination[0]] === gameMaster.getPlayer[1].marker) {
-          //Player two wins
+        if (board[combination[0]] === player2.marker) {
+          gameMaster.gameOver(player2);
         }
       }
     });
     // If all spots not -1 but no win then tie game
-  }
+    if (board.every((spot) => spot !== -1)) {
+      gameMaster.gameOver();
+    }
+  };
 
   spots.forEach((spot) => {
     spot.addEventListener("click", () =>
@@ -145,9 +154,7 @@ const gameMaster = (() => {
     setActivePlayer(0);
   };
 
-  const getPlayer = (playerIndex) => {
-    return gameState.players[playerIndex];
-  }
+  const getPlayer = (playerIndex) => gameState.players[playerIndex];
 
   const setActivePlayer = (playerIndex) => {
     gameState.activePlayer = gameState.players[playerIndex];
@@ -165,11 +172,31 @@ const gameMaster = (() => {
     }
   };
 
+  const gameOver = (player) => {
+    if (player) {
+      if (gameState.players.findIndex(player) === 0) {
+        gameLog.showMessage("p1Win");
+      } else if (gameState.players.findIndex(player) === 1) {
+        gameLog.showMessage("p2Win");
+      }
+    } else {
+      gameLog.showMessage("tie");
+    }
+    // Reset game
+  };
+
   // Create Players
   const player1 = Player(1);
   gameState.players.push(player1);
   const player2 = Player(0);
   gameState.players.push(player2);
 
-  return { isStarted, startGame, getActivePlayerMark, getPlayer, turnOver };
+  return {
+    isStarted,
+    startGame,
+    getActivePlayerMark,
+    getPlayer,
+    turnOver,
+    gameOver,
+  };
 })();
