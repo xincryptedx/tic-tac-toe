@@ -38,10 +38,11 @@ const gameBoard = (() => {
       gameMaster.startGame();
     }
 
-    if (!board[position] === -1) {
-      alert("Spot taken!"); // Change this later for better feedback?
+    if (board[position] === -1) {
+      makeMark(gameMaster.getActivePlayerMark(), position);
+      console.log("Making mark!");
     } else {
-      // makeMark(gameMaster.activePlayer.marker);
+      alert("Spot taken!"); // Change this later for better feedback?
     }
   };
 
@@ -51,7 +52,6 @@ const gameBoard = (() => {
   };
 
   return {
-    makeMark,
     render,
     tryMark,
   };
