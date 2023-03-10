@@ -74,8 +74,17 @@ const gameBoard = (() => {
     if (loadedImageTotal > 1) {
       imagesLoaded = true;
       gameLog.showMessage("p1Turn");
+      console.log("Loaded!");
     }
   };
+
+  (() => {
+    if (oMarker.complete && xMarker.complete) {
+      imagesLoaded = true;
+      gameLog.showMessage("p1Turn");
+      console.log("Cached!");
+    }
+  })();
 
   const render = () => {
     for (let i = 0; i < marks.length; i += 1) {
