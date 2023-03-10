@@ -75,6 +75,14 @@ const gameBoard = (() => {
   };
 
   const tryMark = (position) => {
+    if (gameMaster.isGameOver()) {
+      console.log("game is over resetting with click");
+      render();
+      gameLog.showMessage("p1Turn");
+      gameMaster.startGame();
+      return;
+    }
+
     if (!gameMaster.isStarted() && board.every((spot) => spot === -1)) {
       // Board is clear and spot is clicked
       gameMaster.startGame();
@@ -127,7 +135,6 @@ const gameBoard = (() => {
   spots.forEach((spot) => {
     spot.addEventListener("click", () => {
       tryMark(spot.getAttribute("data-pos"));
-      console.log(`Marking ${spot.getAttribute("data-pos")}`);
     });
   });
 
@@ -135,7 +142,6 @@ const gameBoard = (() => {
     render,
     tryMark,
     clearBoard,
-    board,
   };
 })();
 
@@ -159,9 +165,12 @@ const gameMaster = (() => {
     players: [],
   };
 
+  const isGameOver = () => gameState.gameOver;
+
   const isStarted = () => gameState.gameStarted;
   const startGame = () => {
     gameState.gameStarted = true;
+    gameState.gameOver = false;
     setActivePlayer(0);
   };
 
@@ -186,6 +195,7 @@ const gameMaster = (() => {
 
   const gameOver = (player) => {
     gameState.gameStarted = false;
+    gameState.gameOver = true;
     if (player) {
       if (gameState.players.findIndex((p) => p === player) === 0) {
         gameLog.showMessage("p1Win");
@@ -196,7 +206,6 @@ const gameMaster = (() => {
       gameLog.showMessage("tie");
     }
     resetGame();
-    gameBoard.render();
   };
 
   const resetGame = () => {
@@ -211,6 +220,7 @@ const gameMaster = (() => {
 
   return {
     isStarted,
+    isGameOver,
     startGame,
     getActivePlayerMark,
     getPlayer,
