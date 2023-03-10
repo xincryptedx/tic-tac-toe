@@ -44,13 +44,12 @@ const gameBoard = (() => {
 })();
 
 const Player = (mark = -1) => {
-  const attr = { marker: mark };
-  const totalWins = 0;
-  const getWins = () => totalWins;
+  const attr = { marker: mark, totalWins: 0 };
+
+  const getWins = () => attr.totalWins;
 
   const changeMarker = () => {
     attr.marker = attr.marker === 1 ? 0 : 1;
-    console.log("Change mark!");
   };
 
   return { attr, getWins, changeMarker };
@@ -64,7 +63,7 @@ const gameMaster = (() => {
     players: [],
   };
 
-  // Always need a player 1. Default marker is x.
+  // Always need a player 1. Default marker is x(1).
   const player1 = Player(1);
   gameState.players.push(player1);
 
