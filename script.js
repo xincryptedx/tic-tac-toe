@@ -17,9 +17,9 @@ const gameBoard = (() => {
   const marks = boardDiv.querySelectorAll(".mark");
 
   const oMarker = new Image();
+  const xMarker = new Image();
   oMarker.src =
     "https://drive.google.com/uc?id=1K6q9i9jUrw3XQm40Yi4OvLU0r87Q6pTF";
-  const xMarker = new Image();
   xMarker.src =
     "https://drive.google.com/uc?id=1O-Lz3u9B9Zco6p4sQh_KHGhVXqOOljGz";
 
@@ -38,11 +38,15 @@ const gameBoard = (() => {
     }
   };
 
-  const makeMark = (marker, position) => {};
+  const makeMark = (marker, position) => {
+    board[position] = marker;
+    render();
+  };
 
   return {
     makeMark,
     render,
     marks,
+    board,
   };
 })();
