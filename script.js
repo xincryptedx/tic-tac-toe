@@ -56,8 +56,8 @@ const gameBoard = (() => {
     [3, 4, 5],
     [6, 7, 8],
     [0, 3, 6],
-    [2, 4, 7],
-    [3, 5, 8],
+    [1, 4, 7],
+    [2, 5, 8],
     [0, 4, 8],
     [2, 4, 6],
   ];
@@ -194,6 +194,7 @@ const gameMaster = (() => {
       gameLog.showMessage("tie");
     }
     resetGame();
+    gameBoard.render();
   };
 
   const resetGame = () => {
