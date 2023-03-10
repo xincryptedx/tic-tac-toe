@@ -225,8 +225,10 @@ const gameMaster = (() => {
     if (player) {
       if (gameState.players.findIndex((p) => p === player) === 0) {
         gameLog.showMessage("p1Win");
+        gameState.players[0].attr.totalWins += 1;
       } else if (gameState.players.findIndex((p) => p === player) === 1) {
         gameLog.showMessage("p2Win");
+        gameState.players[1].attr.totalWins += 1;
       }
     } else {
       gameLog.showMessage("tie");
@@ -237,7 +239,10 @@ const gameMaster = (() => {
   const resetGame = () => {
     gameBoard.clearBoard();
     gameLog.appendMessage("continue");
+    labelController.updateWins();
   };
+
+  const getWins = (playerIndex) => gameState.players[playerIndex].getWins();
 
   // Create Players
   const player1 = Player(1);
@@ -251,6 +256,7 @@ const gameMaster = (() => {
     startGame,
     getActivePlayerMark,
     getPlayer,
+    getWins,
     turnOver,
     gameOver,
   };
@@ -259,6 +265,12 @@ const gameMaster = (() => {
 const labelController = (() => {
   const playerOneLabel = document.querySelector(".player-info .player-one");
   const playerTwoLabel = document.querySelector(".player-info .player-two");
+  const playerOneWins = document.querySelector(
+    ".player-info .player-one .wins span"
+  );
+  const playerTwoWins = document.querySelector(
+    ".player-info .player-two .wins span"
+  );
 
   const setActive = (playerIndex) => {
     if (playerIndex === 0) {
@@ -271,5 +283,10 @@ const labelController = (() => {
     }
   };
 
-  return { setActive };
+  const updateWins = () => {
+    playerOneWins.innerHTML = gameMaster.getWins(0);
+    playerTwoWins.innerHTML = gameMaster.getWins(1);
+  };
+
+  return { setActive, updateWins };
 })();
