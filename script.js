@@ -51,3 +51,16 @@ const Player = (marker = -1) => {
 
   return { marker, getWins };
 };
+
+const gameMaster = (() => {
+  const gameState = {
+    gameStarted: false,
+    gaveOver: false,
+    activePlayer: null,
+  };
+
+  // Always need a player 1
+  const player1 = Player(1);
+
+  return { player1 };
+})();
