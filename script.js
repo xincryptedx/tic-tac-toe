@@ -27,10 +27,21 @@ const gameBoard = (() => {
 
   const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
 
-  const render = () => {
+  const backupRender = () => {
     for (let i = 0; i < board.length; i += 1) {
       if (board[i] !== 0) {
         spots[i].innerHTML = board[i];
+      }
+    }
+  };
+
+  const render = (shouldAnimate, position) => {
+    if (shouldAnimate) {
+    } else {
+      for (let i = 0; i < marks.length; i += 1) {
+        // If -1 set image frame 1
+        // If 0  set image frame x
+        // If 1 set image frame y
       }
     }
   };
