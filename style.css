@@ -172,7 +172,7 @@ body {
   justify-items: center;
   align-items: center;
 
-  min-width: 80vw;
+  width: 80vw;
   aspect-ratio: 1/1;
   background-color: var(--primary-bg-color);
 }
