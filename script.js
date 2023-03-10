@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /*                  
     player factory: creates player objects
     props
@@ -34,6 +35,9 @@ const gameBoard = (() => {
 
   const tryMark = (position) => {
     // Check game state and set if needed
+    if (!gameMaster.isStarted) {
+      gameMaster.startGame();
+    }
     // Is spot taken?
     // makeMark(position)
   };
