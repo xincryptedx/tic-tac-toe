@@ -40,8 +40,6 @@ const gameBoard = (() => {
   return {
     makeMark,
     render,
-    marks,
-    board,
   };
 })();
 
@@ -57,10 +55,12 @@ const gameMaster = (() => {
     gameStarted: false,
     gaveOver: false,
     activePlayer: null,
+    players: [],
   };
 
-  // Always need a player 1
+  // Always need a player 1. Default marker is x.
   const player1 = Player(1);
+  gameState.players.push(player1);
 
   return { player1 };
 })();
