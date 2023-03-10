@@ -43,17 +43,23 @@ const gameBoard = (() => {
   };
 })();
 
-const Player = (marker = -1) => {
+const Player = (mark = -1) => {
+  const attr = { marker: mark };
   const totalWins = 0;
   const getWins = () => totalWins;
 
-  return { marker, getWins };
+  const changeMarker = () => {
+    attr.marker = attr.marker === 1 ? 0 : 1;
+    console.log("Change mark!");
+  };
+
+  return { attr, getWins, changeMarker };
 };
 
 const gameMaster = (() => {
   const gameState = {
     gameStarted: false,
-    gaveOver: false,
+    gameOver: false,
     activePlayer: null,
     players: [],
   };
@@ -62,5 +68,5 @@ const gameMaster = (() => {
   const player1 = Player(1);
   gameState.players.push(player1);
 
-  return { player1 };
+  return { gameState };
 })();
