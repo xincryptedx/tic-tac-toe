@@ -131,8 +131,8 @@ table {
   --primary-bg-color: hsl(103, 100%, 82%);
   --spot-border-color: hsl(0, 0%, 0%);
   --spot-border-color-subtle: hsl(0, 0%, 45%);
-  --player-one-bg-color: blue;
-  --player-two-bg-color: red;
+  --player-one-bg-color: hsl(240, 80%, 80%);
+  --player-two-bg-color: hsl(0, 80%, 80%);
 }
 
 body {
@@ -277,9 +277,17 @@ body {
   background-color: var(--player-one-bg-color);
 }
 
+.player-info .player-one.is-active {
+  border: 3px solid black;
+}
+
 .player-info .player-two {
   background-color: var(--player-two-bg-color);
   justify-self: end;
+}
+
+.player-info .player-two.is-active {
+  border: 3px solid black;
 }
 
 .player-info .name {
