@@ -75,7 +75,8 @@ const gameBoard = (() => {
   };
 
   const tryMark = (position) => {
-    if (!gameMaster.isStarted()) {
+    if (!gameMaster.isStarted() && board.every((spot) => spot === -1)) {
+      // Board is clear and spot is clicked
       gameMaster.startGame();
     }
 
@@ -90,8 +91,6 @@ const gameBoard = (() => {
   const checkWin = () => {
     const player1 = gameMaster.getPlayer(0);
     const player2 = gameMaster.getPlayer(1);
-
-    console.log(player1);
 
     // If the spots in any winning combination are all the same and not -1 then win
     WINNING_COMBINATIONS.forEach((combination) => {
@@ -177,9 +176,9 @@ const gameMaster = (() => {
 
   const gameOver = (player) => {
     if (player) {
-      if (gameState.players.findIndex(player) === 0) {
+      if (gameState.players.findIndex((p) => p === player) === 0) {
         gameLog.showMessage("p1Win");
-      } else if (gameState.players.findIndex(player) === 1) {
+      } else if (gameState.players.findIndex((p) => p === player) === 1) {
         gameLog.showMessage("p2Win");
       }
     } else {
