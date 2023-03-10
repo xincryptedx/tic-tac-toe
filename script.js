@@ -16,13 +16,13 @@ const gameBoard = (() => {
   const spots = boardDiv.children;
   const marks = boardDiv.querySelectorAll(".mark");
 
-  const markImage = new Image();
-  markImage.src =
+  const markVideo = document.createElement("video");
+  markVideo.src =
     "https://drive.google.com/uc?id=1tZ9VppmxwWYUEgaqNbY9v-a8tffZmXuJ";
 
-  marks.forEach((img) => {
-    const newImg = img;
-    newImg.src = markImage.src;
+  marks.forEach((video) => {
+    const newVid = video;
+    newVid.src = markVideo.src;
   });
 
   const board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
@@ -41,17 +41,11 @@ const gameBoard = (() => {
     }
   };
 
-  const makeMark = (marker, position) => {
-    if (board[position] === 0) {
-      board[position] = marker;
-      render();
-    } else {
-      alert("Invalid move!"); /* Change to visual feedback later */
-    }
-  };
+  const makeMark = (marker, position) => {};
 
   return {
     makeMark,
     render,
+    marks,
   };
 })();
