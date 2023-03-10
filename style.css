@@ -135,6 +135,7 @@ table {
 
 body {
   height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -246,6 +247,11 @@ body {
   display: grid;
   justify-items: center;
   align-items: start;
+}
+
+.log .text-area p {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .player-info {
