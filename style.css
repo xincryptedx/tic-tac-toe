@@ -140,7 +140,7 @@ body {
 
 .container {
   display: grid;
-  grid-template: 10vh 60vh 20vh 10vh / 1fr;
+  grid-template: 10vh 50vh 20vh 20vh / 1fr;
   grid-template-areas:
     "header"
     "game"
