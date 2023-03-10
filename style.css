@@ -261,11 +261,16 @@ body {
 .player-info {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
+  padding: 0px 20px;
 }
 
 .player-info .player-label {
   display: grid;
   grid-template: 2fr 1fr / 1fr;
+  width: 80%;
+  height: 50%;
+  align-items: center;
+  border-radius: 20px;
 }
 
 .player-info .player-one {
@@ -274,4 +279,13 @@ body {
 
 .player-info .player-two {
   background-color: var(--player-two-bg-color);
+  justify-self: end;
+}
+
+.player-info .name {
+  justify-self: center;
+}
+
+.player-info .wins {
+  justify-self: center;
 }
