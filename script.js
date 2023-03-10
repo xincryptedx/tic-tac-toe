@@ -25,7 +25,7 @@ const gameBoard = (() => {
     newImg.src = markImage.src;
   });
 
-  const board = [0, 0, 0, 0, 0, 0, 0, 0, 0];
+  const board = [-1, -1, -1, -1, -1, -1, -1, -1, -1];
 
   const backupRender = () => {
     for (let i = 0; i < board.length; i += 1) {
