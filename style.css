@@ -131,6 +131,8 @@ table {
   --primary-bg-color: hsl(103, 100%, 82%);
   --spot-border-color: hsl(0, 0%, 0%);
   --spot-border-color-subtle: hsl(0, 0%, 45%);
+  --player-one-bg-color: blue;
+  --player-two-bg-color: red;
 }
 
 body {
@@ -259,4 +261,17 @@ body {
 .player-info {
   display: grid;
   grid-template: 1fr / 1fr 1fr;
+}
+
+.player-info .player-label {
+  display: grid;
+  grid-template: 2fr 1fr / 1fr;
+}
+
+.player-info .player-one {
+  background-color: var(--player-one-bg-color);
+}
+
+.player-info .player-two {
+  background-color: var(--player-two-bg-color);
 }
