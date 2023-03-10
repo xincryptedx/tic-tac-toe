@@ -82,7 +82,6 @@ const gameBoard = (() => {
 
     if (board[position] === -1) {
       makeMark(gameMaster.getActivePlayerMark(), position);
-      gameMaster.turnOver();
     } else {
       gameLog.appendMessage("spotTaken");
     }
@@ -110,6 +109,7 @@ const gameBoard = (() => {
     if (board.every((spot) => spot !== -1)) {
       gameMaster.gameOver();
     }
+    gameMaster.turnOver();
   };
 
   const makeMark = (marker, position) => {
@@ -172,10 +172,8 @@ const gameMaster = (() => {
 
   const turnOver = () => {
     // Check for gameOver conditions
-    if (
-      gameState.activePlayer === gameState.players[0] &&
-      gameState.gameStarted
-    ) {
+    if (!gameState.gameStarted) return;
+    if (gameState.activePlayer === gameState.players[0]) {
       setActivePlayer(1);
       gameLog.showMessage("p2Turn");
     } else {
@@ -185,6 +183,7 @@ const gameMaster = (() => {
   };
 
   const gameOver = (player) => {
+    gameState.gameStarted = false;
     if (player) {
       if (gameState.players.findIndex((p) => p === player) === 0) {
         gameLog.showMessage("p1Win");
@@ -194,11 +193,10 @@ const gameMaster = (() => {
     } else {
       gameLog.showMessage("tie");
     }
-    // Reset game
+    resetGame();
   };
 
   const resetGame = () => {
-    gameState.gameStarted = false;
     gameBoard.clearBoard();
   };
 
