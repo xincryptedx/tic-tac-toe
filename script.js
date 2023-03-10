@@ -40,7 +40,7 @@ const gameBoard = (() => {
 
     if (board[position] === -1) {
       makeMark(gameMaster.getActivePlayerMark(), position);
-      console.log("Making mark!");
+      gameMaster.turnOver();
     } else {
       alert("Spot taken!"); // Change this later for better feedback?
     }
@@ -101,5 +101,5 @@ const gameMaster = (() => {
   const player1 = Player(1);
   gameState.players.push(player1);
 
-  return { isStarted, startGame, getActivePlayerMark, gameState };
+  return { isStarted, startGame, getActivePlayerMark, turnOver };
 })();
