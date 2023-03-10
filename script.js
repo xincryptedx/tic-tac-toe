@@ -25,8 +25,16 @@ const gameLog = (() => {
     logText.innerHTML = messages[message];
   };
 
+  const appendMessage = (message) => {
+    const newMessage = messages[message];
+    if (!logText.innerHTML.includes(newMessage)) {
+      logText.innerHTML += `\n ${messages[message]}`;
+    }
+  };
+
   return {
     showMessage,
+    appendMessage,
   };
 })();
 
@@ -64,7 +72,7 @@ const gameBoard = (() => {
       makeMark(gameMaster.getActivePlayerMark(), position);
       gameMaster.turnOver();
     } else {
-      gameLog.showMessage("spotTaken");
+      gameLog.appendMessage("spotTaken");
     }
   };
 
