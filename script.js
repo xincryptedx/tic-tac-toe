@@ -18,6 +18,7 @@ const gameLog = (() => {
     p1Win: "Player One Wins!",
     p2Win: "Player Two Wins!",
     tie: "It's a tie game.",
+    spotTaken: "That spot is taken!",
   };
 
   const showMessage = (message) => {
@@ -63,7 +64,7 @@ const gameBoard = (() => {
       makeMark(gameMaster.getActivePlayerMark(), position);
       gameMaster.turnOver();
     } else {
-      alert("Spot taken!"); // Change this later for better feedback
+      gameLog.showMessage("spotTaken");
     }
   };
 
