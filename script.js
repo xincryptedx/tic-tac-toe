@@ -45,6 +45,12 @@ const gameBoard = (() => {
 
   const oMarker = new Image();
   const xMarker = new Image();
+  let loadedImageTotal = 0;
+  let imagesLoaded = false;
+
+  oMarker.addEventListener("load", () => checkLoadedImages());
+  xMarker.addEventListener("load", () => checkLoadedImages());
+
   oMarker.src =
     "https://drive.google.com/uc?id=12zkVtQIbnW-aF6KtEGPPKqwnRL9Cysc1";
   xMarker.src =
@@ -63,6 +69,14 @@ const gameBoard = (() => {
     [2, 4, 6],
   ];
 
+  const checkLoadedImages = () => {
+    loadedImageTotal += 1;
+    if (loadedImageTotal > 1) {
+      imagesLoaded = true;
+      gameLog.showMessage("p1Turn");
+    }
+  };
+
   const render = () => {
     for (let i = 0; i < marks.length; i += 1) {
       if (board[i] === 1) {
@@ -76,23 +90,25 @@ const gameBoard = (() => {
   };
 
   const tryMark = (position) => {
-    if (gameMaster.isGameOver()) {
-      console.log("game is over resetting with click");
-      render();
-      gameLog.showMessage("p1Turn");
-      gameMaster.startGame();
-      return;
-    }
+    if (imagesLoaded) {
+      if (gameMaster.isGameOver()) {
+        console.log("game is over resetting with click");
+        render();
+        gameLog.showMessage("p1Turn");
+        gameMaster.startGame();
+        return;
+      }
 
-    if (!gameMaster.isStarted() && board.every((spot) => spot === -1)) {
-      // Board is clear and spot is clicked
-      gameMaster.startGame();
-    }
+      if (!gameMaster.isStarted() && board.every((spot) => spot === -1)) {
+        // Board is clear and spot is clicked
+        gameMaster.startGame();
+      }
 
-    if (board[position] === -1) {
-      makeMark(gameMaster.getActivePlayerMark(), position);
-    } else {
-      gameLog.appendMessage("spotTaken");
+      if (board[position] === -1) {
+        makeMark(gameMaster.getActivePlayerMark(), position);
+      } else {
+        gameLog.appendMessage("spotTaken");
+      }
     }
   };
 
