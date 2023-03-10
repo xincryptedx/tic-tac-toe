@@ -194,49 +194,49 @@ body {
   box-sizing: border-box;
 }
 
-.board .spot1 {
+.board .spot0 {
   grid-area: r1c1;
   border-left: var(--spot-border-size) solid var(--spot-border-color-subtle);
   border-top: var(--spot-border-size) solid var(--spot-border-color-subtle);
 }
 
-.board .spot2 {
+.board .spot1 {
   grid-area: r1c2;
   border-top: var(--spot-border-size) solid var(--spot-border-color-subtle);
 }
 
-.board .spot3 {
+.board .spot2 {
   grid-area: r1c3;
   border-top: var(--spot-border-size) solid var(--spot-border-color-subtle);
   border-right: var(--spot-border-size) solid var(--spot-border-color-subtle);
 }
 
-.board .spot4 {
+.board .spot3 {
   grid-area: r2c1;
   border-left: var(--spot-border-size) solid var(--spot-border-color-subtle);
 }
 
-.board .spot5 {
+.board .spot4 {
   grid-area: r2c2;
 }
 
-.board .spot6 {
+.board .spot5 {
   grid-area: r2c3;
   border-right: var(--spot-border-size) solid var(--spot-border-color-subtle);
 }
 
-.board .spot7 {
+.board .spot6 {
   grid-area: r3c1;
   border-left: 5px solid var(--spot-border-color-subtle);
   border-bottom: 5px solid var(--spot-border-color-subtle);
 }
 
-.board .spot8 {
+.board .spot7 {
   grid-area: r3c2;
   border-bottom: 5px solid var(--spot-border-color-subtle);
 }
 
-.board .spot9 {
+.board .spot8 {
   grid-area: r3c3;
   border-right: 5px solid var(--spot-border-color-subtle);
   border-bottom: 5px solid var(--spot-border-color-subtle);

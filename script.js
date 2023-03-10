@@ -125,15 +125,17 @@ const gameBoard = (() => {
   };
 
   spots.forEach((spot) => {
-    spot.addEventListener("click", () =>
-      tryMark(spot.getAttribute("data-pos"))
-    );
+    spot.addEventListener("click", () => {
+      tryMark(spot.getAttribute("data-pos"));
+      console.log(`Marking ${spot.getAttribute("data-pos")}`);
+    });
   });
 
   return {
     render,
     tryMark,
     clearBoard,
+    board,
   };
 })();
 
