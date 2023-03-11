@@ -318,24 +318,23 @@ const labelController = (() => {
     ) {
       playerOptions.classList.remove(otherPlayerClass);
       playerOptions.classList.add(thisPlayerClass);
-      // populate
+      // populate stuff
     }
     // yes and this .player info then close and remove .player
-    if (
+    else if (
       !playerOptions.classList.contains("hidden") &&
       playerOptions.classList.contains(thisPlayerClass)
     ) {
       gameLog.show();
-      labelController.hideOptions();
+      hideOptions();
       playerOptions.classList.remove(thisPlayerClass);
-    }
-
-    if (playerOptions.classList.contains("hidden")) {
+    } else if (playerOptions.classList.contains("hidden")) {
       gameLog.hide();
-      labelController.showOptions();
+      showOptions();
+      playerOptions.classList.add(thisPlayerClass);
       // Populate stuff
     }
   };
 
-  return { setActive, updateWins };
+  return { setActive, updateWins, changePlayerOptions };
 })();
