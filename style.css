@@ -365,7 +365,27 @@ body {
   }
 
   .game .board {
-    height: 50%;
+    height: 80%;
     width: auto;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .player-info {
+    grid-template: 1fr / 1fr 1fr 1fr 1fr;
+    grid-template-areas: ". label-one label-two .";
+  }
+
+  .player-info .player-label {
+    max-width: 15vw;
+    justify-self: center;
+  }
+
+  .player-info .player-label.player-one {
+    grid-area: label-one;
+  }
+
+  .player-info .player-label.player-two {
+    grid-area: label-two;
   }
 }
