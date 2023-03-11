@@ -33,9 +33,19 @@ const gameLog = (() => {
     }
   };
 
+  const hideLog = () => {
+    logText.classList.add("hidden");
+  };
+
+  const showLog = () => {
+    logText.classList.remove("hidden");
+  };
+
   return {
     showMessage,
     appendMessage,
+    hideLog,
+    showLog,
   };
 })();
 
