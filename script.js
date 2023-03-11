@@ -336,5 +336,8 @@ const labelController = (() => {
     }
   };
 
+  playerOneLabel.addEventListener("click", () => changePlayerOptions(0));
+  playerTwoLabel.addEventListener("click", () => changePlayerOptions(1));
+
   return { setActive, updateWins, changePlayerOptions };
 })();
