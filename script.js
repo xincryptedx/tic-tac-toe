@@ -343,9 +343,10 @@ const labelController = (() => {
   };
 
   const populateOptions = (playerIndex) => {
-    let pName = gameMaster.getName(playerIndex);
-    if (!pName && playerIndex === 0) pName = "Player One";
-    else if (!pName && playerIndex === 1) pName = "Player Two";
+    const pName = gameMaster.getName(playerIndex);
+    if (!pName && playerIndex === 0) playerNameInput.placeholder = "Player One";
+    else if (!pName && playerIndex === 1)
+      playerNameInput.placeholder = "Player Two";
     playerNameInput.value = pName;
   };
 
