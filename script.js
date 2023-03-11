@@ -327,6 +327,12 @@ const labelController = (() => {
     const newName = playerNameInput.value;
     gameMaster.setName(playerIndex, newName);
     populateOptions(playerIndex);
+    updateNameLabel();
+  };
+
+  const updateNameLabel = () => {
+    playerOneName.innerHTML = gameMaster.getName(0);
+    playerTwoName.innerHTML = gameMaster.getName(1);
   };
 
   const updateWins = () => {
