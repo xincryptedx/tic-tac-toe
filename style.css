@@ -351,6 +351,7 @@ body {
 
 .player-info .name {
   justify-self: center;
+  font-size: 1.1rem;
 }
 
 .player-info .wins {
