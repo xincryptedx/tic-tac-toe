@@ -180,7 +180,7 @@ const gameBoard = (() => {
 })();
 
 const Player = (mark = -1) => {
-  const attr = { marker: mark, totalWins: 0 };
+  const attr = { name: "", aiControlled: false, marker: mark, totalWins: 0 };
 
   const getWins = () => attr.totalWins;
 
