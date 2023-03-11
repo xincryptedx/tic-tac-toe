@@ -267,8 +267,14 @@ body {
 .log {
   grid-area: log;
   display: grid;
+  grid-template: 1fr / 1fr;
+  grid-template-areas: "log";
   justify-items: center;
   align-items: start;
+}
+
+.log .text-area {
+  grid-area: log;
 }
 
 .log .text-area p {
@@ -284,6 +290,7 @@ body {
 }
 
 .log .player-change {
+  grid-area: log;
   display: grid;
   grid-template: 1fr / 1fr 4fr;
   height: 50%;
