@@ -301,7 +301,6 @@ const gameLog = (() => {
 const labelController = (() => {
   const playerOptions = document.querySelector(".player-change");
   const playerNameInput = playerOptions.querySelector("input.player-name");
-  const playerTypeBtn = playerOptions.querySelector(".player-type");
   const playerOneLabel = document.querySelector(".player-info .player-one");
   const playerTwoLabel = document.querySelector(".player-info .player-two");
   const playerOneName = playerOneLabel.children[0];
