@@ -274,6 +274,8 @@ const gameMaster = (() => {
 
 const labelController = (() => {
   const playerOptions = document.querySelector(".player-change");
+  const playerNameInput = playerOptions.querySelector("input.player-name");
+  const playerTypeBtn = playerOptions.querySelector(".player-type");
   const playerOneLabel = document.querySelector(".player-info .player-one");
   const playerTwoLabel = document.querySelector(".player-info .player-two");
   const playerOneWins = document.querySelector(
@@ -307,6 +309,8 @@ const labelController = (() => {
     playerOptions.classList.remove("hidden");
   };
 
+  const populateOptions = (playerIndex) => {};
+
   const changePlayerOptions = (playerIndex) => {
     const thisPlayerClass = playerIndex === 0 ? "player-one" : "player-two";
     const otherPlayerClass = playerIndex === 0 ? "player-two" : "player-one";
@@ -318,7 +322,7 @@ const labelController = (() => {
     ) {
       playerOptions.classList.remove(otherPlayerClass);
       playerOptions.classList.add(thisPlayerClass);
-      // populate stuff
+      populateOptions();
     }
     // yes and this .player info then close and remove .player
     else if (
@@ -332,7 +336,7 @@ const labelController = (() => {
       gameLog.hide();
       showOptions();
       playerOptions.classList.add(thisPlayerClass);
-      // Populate stuff
+      populateOptions();
     }
   };
 
