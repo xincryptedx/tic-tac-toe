@@ -22,7 +22,7 @@ const gameLog = (() => {
     continue: "Tap board to start new game.",
   };
 
-  const showMessage = (message) => {
+  const displayMessage = (message) => {
     logText.innerHTML = messages[message];
   };
 
@@ -33,19 +33,19 @@ const gameLog = (() => {
     }
   };
 
-  const hideLog = () => {
+  const hide = () => {
     logText.classList.add("hidden");
   };
 
-  const showLog = () => {
+  const show = () => {
     logText.classList.remove("hidden");
   };
 
   return {
-    showMessage,
+    displayMessage,
     appendMessage,
-    hideLog,
-    showLog,
+    hide,
+    show,
   };
 })();
 
@@ -83,14 +83,14 @@ const gameBoard = (() => {
     loadedImageTotal += 1;
     if (loadedImageTotal > 1) {
       imagesLoaded = true;
-      gameLog.showMessage("p1Turn");
+      gameLog.displayMessage("p1Turn");
     }
   };
 
   window.onload = (() => {
     if (oMarker.complete && xMarker.complete) {
       imagesLoaded = true;
-      gameLog.showMessage("p1Turn");
+      gameLog.displayMessage("p1Turn");
     }
   })();
 
@@ -111,7 +111,7 @@ const gameBoard = (() => {
       if (gameMaster.isGameOver()) {
         render();
         labelController.setActive(0);
-        gameLog.showMessage("p1Turn");
+        gameLog.displayMessage("p1Turn");
         gameMaster.startGame();
         return;
       }
@@ -220,11 +220,11 @@ const gameMaster = (() => {
     if (!gameState.gameStarted) return;
     if (gameState.activePlayer === gameState.players[0]) {
       setActivePlayer(1);
-      gameLog.showMessage("p2Turn");
+      gameLog.displayMessage("p2Turn");
       labelController.setActive(1);
     } else {
       setActivePlayer(0);
-      gameLog.showMessage("p1Turn");
+      gameLog.displayMessage("p1Turn");
       labelController.setActive(0);
     }
   };
@@ -234,14 +234,14 @@ const gameMaster = (() => {
     gameState.gameOver = true;
     if (player) {
       if (gameState.players.findIndex((p) => p === player) === 0) {
-        gameLog.showMessage("p1Win");
+        gameLog.displayMessage("p1Win");
         gameState.players[0].attr.totalWins += 1;
       } else if (gameState.players.findIndex((p) => p === player) === 1) {
-        gameLog.showMessage("p2Win");
+        gameLog.displayMessage("p2Win");
         gameState.players[1].attr.totalWins += 1;
       }
     } else {
-      gameLog.showMessage("tie");
+      gameLog.displayMessage("tie");
     }
     resetGame();
   };
