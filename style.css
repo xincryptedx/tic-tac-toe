@@ -177,7 +177,8 @@ body {
 .game {
   grid-area: game;
   display: grid;
-  justify-content: center;
+  grid-template: 1fr / 1fr;
+  justify-items: center;
   box-sizing: border-box;
 }
 
