@@ -283,6 +283,34 @@ body {
 }
 
 .log .player-change {
+  display: grid;
+  grid-template: 1fr / 1fr 4fr;
+  height: 50%;
+  width: 50%;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.log .player-change label {
+  align-self: center;
+  justify-self: center;
+}
+
+.log .player-change input {
+  height: 70%;
+  width: 80%;
+  align-self: center;
+  justify-self: end;
+  border-radius: 10px;
+}
+
+.log .player-change.player-one {
+  background-color: var(--player-one-bg-color);
+}
+
+.log .player-change.player-two {
+  background-color: var(--player-two-bg-color);
 }
 
 .log .player-change.hidden {
