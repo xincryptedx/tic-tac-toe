@@ -334,8 +334,6 @@ const labelController = (() => {
   const changePlayerOptions = (playerIndex) => {
     const thisPlayerClass = playerIndex === 0 ? "player-one" : "player-two";
     const otherPlayerClass = playerIndex === 0 ? "player-two" : "player-one";
-    // Open?
-    // yes and other player info then set display info to this player label's player
     if (
       !playerOptions.classList.contains("hidden") &&
       playerOptions.classList.contains(otherPlayerClass)
@@ -343,9 +341,7 @@ const labelController = (() => {
       playerOptions.classList.remove(otherPlayerClass);
       playerOptions.classList.add(thisPlayerClass);
       populateOptions(playerIndex);
-    }
-    // yes and this .player info then close and remove .player
-    else if (
+    } else if (
       !playerOptions.classList.contains("hidden") &&
       playerOptions.classList.contains(thisPlayerClass)
     ) {
