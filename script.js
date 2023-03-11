@@ -390,9 +390,19 @@ const labelController = (() => {
     }
   };
 
+  const newNameEntered = (event) => {
+    if (event.keyCode === 13 || event.keyCode === 27) {
+      // Enter Key or Esc Key
+      event.preventDefault();
+      hideOptions();
+      gameLog.show();
+    }
+  };
+
   playerOneLabel.addEventListener("click", () => changePlayerOptions(0));
   playerTwoLabel.addEventListener("click", () => changePlayerOptions(1));
   playerNameInput.addEventListener("input", () => updatePlayerName());
+  playerNameInput.addEventListener("keydown", (e) => newNameEntered(e));
 
   return {
     setActive,
