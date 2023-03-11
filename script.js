@@ -184,11 +184,13 @@ const Player = (mark = -1) => {
 
   const getWins = () => attr.totalWins;
 
+  const getName = () => attr.name;
+
   const changeMarker = () => {
     attr.marker = attr.marker === 1 ? 0 : 1;
   };
 
-  return { attr, getWins, changeMarker };
+  return { attr, getWins, getName, changeMarker };
 };
 
 const gameMaster = (() => {
@@ -252,7 +254,19 @@ const gameMaster = (() => {
     labelController.updateWins();
   };
 
-  const getWins = (playerIndex) => gameState.players[playerIndex].getWins();
+  const getWins = (playerIndex) => {
+    if (gameState.players[playerIndex]) {
+      return gameState.players[playerIndex].getWins();
+    }
+    return undefined;
+  };
+
+  const getName = (playerIndex) => {
+    if (gameState.players[playerIndex]) {
+      return gameState.players[playerIndex].getName();
+    }
+    return undefined;
+  };
 
   // Create Players
   const player1 = Player(1);
@@ -265,6 +279,7 @@ const gameMaster = (() => {
     isGameOver,
     startGame,
     getActivePlayerMark,
+    getName,
     getPlayer,
     getWins,
     turnOver,
