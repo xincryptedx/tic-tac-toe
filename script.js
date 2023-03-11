@@ -273,6 +273,7 @@ const gameMaster = (() => {
 })();
 
 const labelController = (() => {
+  const playerOptions = document.querySelector(".player-change");
   const playerOneLabel = document.querySelector(".player-info .player-one");
   const playerTwoLabel = document.querySelector(".player-info .player-two");
   const playerOneWins = document.querySelector(
@@ -296,6 +297,23 @@ const labelController = (() => {
   const updateWins = () => {
     playerOneWins.innerHTML = gameMaster.getWins(0);
     playerTwoWins.innerHTML = gameMaster.getWins(1);
+  };
+
+  const hideOptions = () => {
+    playerOptions.classList.add("hidden");
+  };
+
+  const showOptions = () => {
+    playerOptions.classList.remove("hidden");
+  };
+
+  const changePlayerOptions = () => {
+    // Check if playerchange is open
+    // yes and other player info then set display info to this player label's player
+    // yes and this player info then close
+    if (playerOptions.classList.contains("hidden")) {
+      // display it with this players info
+    }
   };
 
   return { setActive, updateWins };
