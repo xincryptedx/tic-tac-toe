@@ -313,6 +313,7 @@ body {
   align-self: center;
   justify-self: end;
   border-radius: 10px;
+  max-height: 2rem;
 }
 
 .log .player-change.player-one {
