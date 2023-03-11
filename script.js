@@ -324,7 +324,12 @@ const labelController = (() => {
     playerOptions.classList.remove("hidden");
   };
 
-  const populateOptions = (playerIndex) => {};
+  const populateOptions = (playerIndex) => {
+    let pName = gameMaster.getName(playerIndex);
+    if (!pName && playerIndex === 0) pName = "Player One";
+    else if (!pName && playerIndex === 1) pName = "Player Two";
+    playerNameInput.value = pName;
+  };
 
   const changePlayerOptions = (playerIndex) => {
     const thisPlayerClass = playerIndex === 0 ? "player-one" : "player-two";
@@ -337,7 +342,7 @@ const labelController = (() => {
     ) {
       playerOptions.classList.remove(otherPlayerClass);
       playerOptions.classList.add(thisPlayerClass);
-      populateOptions();
+      populateOptions(playerIndex);
     }
     // yes and this .player info then close and remove .player
     else if (
@@ -351,7 +356,7 @@ const labelController = (() => {
       gameLog.hide();
       showOptions();
       playerOptions.classList.add(thisPlayerClass);
-      populateOptions();
+      populateOptions(playerIndex);
     }
   };
 
