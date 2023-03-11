@@ -153,8 +153,20 @@ body {
 
 .header {
   display: grid;
+  grid-template: 2fr 1fr / 1fr;
+  grid-template-areas:
+    "title"
+    "author";
   justify-items: center;
   align-items: center;
+}
+
+.header .title {
+  grid-area: title;
+}
+
+.header .author {
+  grid-area: author;
 }
 
 .game {
