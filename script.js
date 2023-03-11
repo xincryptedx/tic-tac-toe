@@ -333,8 +333,13 @@ const labelController = (() => {
 
   const updateNameLabel = (playerIndex) => {
     const newName = gameMaster.getName(playerIndex);
-    if (playerIndex === 0) playerOneName.innerHTML = newName;
-    if (playerIndex === 1) playerTwoName.innerHTML = newName;
+    if (newName) {
+      if (playerIndex === 0) playerOneName.innerHTML = newName;
+      if (playerIndex === 1) playerTwoName.innerHTML = newName;
+    } else {
+      if (playerIndex === 0) playerOneName.innerHTML = "Player One";
+      if (playerIndex === 1) playerTwoName.innerHTML = "Player Two";
+    }
   };
 
   const updateWins = () => {
