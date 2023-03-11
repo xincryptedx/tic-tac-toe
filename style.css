@@ -278,6 +278,10 @@ body {
   white-space: pre-wrap;
 }
 
+.log .text-area p.hidden {
+  display: none;
+}
+
 .log .player-change {
   display: none;
 }
