@@ -283,6 +283,9 @@ body {
 }
 
 .log .player-change {
+}
+
+.log .player-change.hidden {
   display: none;
 }
 
