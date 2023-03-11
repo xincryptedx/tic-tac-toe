@@ -9,45 +9,6 @@
     computerPlayer: module that inherits from player factory with object.create
 
 */
-const gameLog = (() => {
-  const logText = document.querySelector(".log .text-area p");
-
-  const messages = {
-    p1Turn: "Player One's Turn!",
-    p2Turn: "Player Two's Turn!",
-    p1Win: "Player One Wins!",
-    p2Win: "Player Two Wins!",
-    tie: "It's a tie game.",
-    spotTaken: "That spot is taken!",
-    continue: "Tap board to start new game.",
-  };
-
-  const displayMessage = (message) => {
-    logText.innerHTML = messages[message];
-  };
-
-  const appendMessage = (message) => {
-    const newMessage = messages[message];
-    if (!logText.innerHTML.includes(newMessage)) {
-      logText.innerHTML += `\n ${messages[message]}`;
-    }
-  };
-
-  const hide = () => {
-    logText.classList.add("hidden");
-  };
-
-  const show = () => {
-    logText.classList.remove("hidden");
-  };
-
-  return {
-    displayMessage,
-    appendMessage,
-    hide,
-    show,
-  };
-})();
 
 const gameBoard = (() => {
   const spots = document.querySelectorAll(".spot");
@@ -294,6 +255,46 @@ const gameMaster = (() => {
   };
 })();
 
+const gameLog = (() => {
+  const logText = document.querySelector(".log .text-area p");
+
+  const messages = {
+    p1Turn: `Player One's Turn!`,
+    p2Turn: "Player Two's Turn!",
+    p1Win: "Player One Wins!",
+    p2Win: "Player Two Wins!",
+    tie: "It's a tie game.",
+    spotTaken: "That spot is taken!",
+    continue: "Tap board to start new game.",
+  };
+
+  const displayMessage = (message) => {
+    logText.innerHTML = messages[message];
+  };
+
+  const appendMessage = (message) => {
+    const newMessage = messages[message];
+    if (!logText.innerHTML.includes(newMessage)) {
+      logText.innerHTML += `\n ${messages[message]}`;
+    }
+  };
+
+  const hide = () => {
+    logText.classList.add("hidden");
+  };
+
+  const show = () => {
+    logText.classList.remove("hidden");
+  };
+
+  return {
+    displayMessage,
+    appendMessage,
+    hide,
+    show,
+  };
+})();
+
 const labelController = (() => {
   const playerOptions = document.querySelector(".player-change");
   const playerNameInput = playerOptions.querySelector("input.player-name");
@@ -327,12 +328,13 @@ const labelController = (() => {
     const newName = playerNameInput.value;
     gameMaster.setName(playerIndex, newName);
     populateOptions(playerIndex);
-    updateNameLabel();
+    updateNameLabel(playerIndex);
   };
 
-  const updateNameLabel = () => {
-    playerOneName.innerHTML = gameMaster.getName(0);
-    playerTwoName.innerHTML = gameMaster.getName(1);
+  const updateNameLabel = (playerIndex) => {
+    const newName = gameMaster.getName(playerIndex);
+    if (playerIndex === 0) playerOneName.innerHTML = newName;
+    if (playerIndex === 1) playerTwoName.innerHTML = newName;
   };
 
   const updateWins = () => {
