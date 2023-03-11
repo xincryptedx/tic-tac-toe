@@ -293,6 +293,7 @@ body {
   grid-area: log;
   display: grid;
   grid-template: 1fr / 1fr 4fr;
+  justify-items: center;
   height: 50%;
   width: 50%;
   border-radius: 10px;
@@ -304,14 +305,12 @@ body {
 
 .log .player-change label {
   align-self: center;
-  justify-self: center;
 }
 
 .log .player-change input {
   height: 70%;
   width: 80%;
   align-self: center;
-  justify-self: end;
   border-radius: 10px;
   max-height: 2rem;
 }
