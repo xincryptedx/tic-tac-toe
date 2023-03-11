@@ -152,6 +152,9 @@ body {
 }
 
 .header {
+  display: grid;
+  justify-items: center;
+  align-items: center;
 }
 
 .game {
