@@ -320,7 +320,11 @@ const labelController = (() => {
     }
   };
 
-  const updatePlayerName = (playerIndex, newName) => {
+  const updatePlayerName = () => {
+    let playerIndex;
+    if (playerOptions.classList.contains("player-one")) playerIndex = 0;
+    if (playerOptions.classList.contains("player-two")) playerIndex = 1;
+    const newName = playerNameInput.value;
     gameMaster.setName(playerIndex, newName);
     populateOptions(playerIndex);
   };
@@ -372,6 +376,7 @@ const labelController = (() => {
 
   playerOneLabel.addEventListener("click", () => changePlayerOptions(0));
   playerTwoLabel.addEventListener("click", () => changePlayerOptions(1));
+  playerNameInput.addEventListener("input", () => updatePlayerName());
 
-  return { setActive, updateWins, changePlayerOptions };
+  return { setActive, updateWins, changePlayerOptions, updatePlayerName };
 })();
