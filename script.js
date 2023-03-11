@@ -69,6 +69,9 @@ const gameBoard = (() => {
 
   const tryMark = (position) => {
     if (imagesLoaded) {
+      gameLog.show();
+      labelController.hideOptions();
+
       if (gameMaster.isGameOver()) {
         render();
         labelController.setActive(0);
@@ -392,5 +395,11 @@ const labelController = (() => {
   playerTwoLabel.addEventListener("click", () => changePlayerOptions(1));
   playerNameInput.addEventListener("input", () => updatePlayerName());
 
-  return { setActive, updateWins, changePlayerOptions, updatePlayerName };
+  return {
+    setActive,
+    updateWins,
+    changePlayerOptions,
+    updatePlayerName,
+    hideOptions,
+  };
 })();
