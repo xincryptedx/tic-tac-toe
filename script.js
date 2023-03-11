@@ -268,6 +268,12 @@ const gameMaster = (() => {
     return undefined;
   };
 
+  const setName = (playerIndex, newName) => {
+    if (gameState.players[playerIndex]) {
+      gameState.players[playerIndex].attr.name = newName;
+    }
+  };
+
   // Create Players
   const player1 = Player(1);
   gameState.players.push(player1);
@@ -280,6 +286,7 @@ const gameMaster = (() => {
     startGame,
     getActivePlayerMark,
     getName,
+    setName,
     getPlayer,
     getWins,
     turnOver,
@@ -293,6 +300,8 @@ const labelController = (() => {
   const playerTypeBtn = playerOptions.querySelector(".player-type");
   const playerOneLabel = document.querySelector(".player-info .player-one");
   const playerTwoLabel = document.querySelector(".player-info .player-two");
+  const playerOneName = playerOneLabel.children[0];
+  const playerTwoName = playerTwoLabel.children[0];
   const playerOneWins = document.querySelector(
     ".player-info .player-one .wins span"
   );
@@ -309,6 +318,11 @@ const labelController = (() => {
       playerTwoLabel.classList.add("is-active");
       playerOneLabel.classList.remove("is-active");
     }
+  };
+
+  const updatePlayerName = (playerIndex, newName) => {
+    gameMaster.setName(playerIndex, newName);
+    populateOptions(playerIndex);
   };
 
   const updateWins = () => {
