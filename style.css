@@ -163,10 +163,15 @@ body {
 
 .header .title {
   grid-area: title;
+  font-size: 2rem;
+  font-weight: bold;
+  align-self: end;
 }
 
 .header .author {
   grid-area: author;
+  font-size: 0.75rem;
+  align-self: start;
 }
 
 .game {
@@ -271,6 +276,10 @@ body {
   text-align: center;
   line-height: 3rem;
   white-space: pre-wrap;
+}
+
+.log .player-change {
+  display: none;
 }
 
 .player-info {
